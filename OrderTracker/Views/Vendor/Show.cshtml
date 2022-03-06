@@ -4,7 +4,7 @@
 
 @using OrderTracker.Models;
 
-<h3>Here are all the Orders for this vendor:</h3>
+<h2>Here are all the Orders for this vendor:</h2>
 
 <ol>
 @foreach (Order order in @Model["Orders"])
@@ -12,6 +12,6 @@
   <li><a href='/vendor/@Model["Vendor"].Id/order/@order.Id'>@order.Description</a></li>
 }
 </ol>
-<a href='/vendor/@Model["Vendor"].Id/order/new'><button type="button" class="btn btn-success" style="width:150px">Add a new Order</button></a>
+<a href='/vendor/@Model["Vendor"].Id/order/new'><button type="button" class="btn btn-success" style="width:150px">Add a new Order</button></a><br><br>
 <a href='/vendor'><button type="button" class="btn btn-success" style="width:150px">Back to Vendors</button></a>
 <a href='/'><button type="button" class="btn btn-success" style="width:150px">Back home</button></a>
