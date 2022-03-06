@@ -4,11 +4,49 @@
 
 <h1>Vendor Order Details: </h1>
 
-<h2>Vendor: @Model["Vendor"].Name</h2>
-<h3>@Model["Order"].Description</h3>
-<h3>Pastery: @Model["Order"].Pastery</h3>
-<h3>Bread: @Model["Order"].Bread</h3>
-
+<table class ="table table-borderd table-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Vendor Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Pastery
+            </th>
+            <th>
+                Bread
+            </th>
+            <th>
+                Date Added
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr class="table table-hover table-secondary">
+                <td width 10%>
+                    @Model["Vendor"].Id
+                </td>
+                <td width 50%>
+                    @Model["Vendor"].Name
+                </td>
+                <td width 30%>
+                    @Model["Order"].Description
+                </td>
+                <td width 30%>
+                    @Model["Order"].Pastery
+                </td>
+                <td width 30%>
+                    @Model["Order"].Bread
+                </td>
+            </tr>
+    </tbody>
+</table>
 
 <a href='/vendor/@Model["Vendor"].Id/order/new'><button type="button" class="btn btn-success" style="width:150px">Add Order</button></a>
 <a href='/vendor'><button type="button" class="btn btn-success" style="width:150px">View Vendors</button></a>
