@@ -6,15 +6,15 @@ namespace OrderTracker.Models
   {
     public string Description { get; set; }
     public int Id { get; }
-    //public string Pastery { get; set; }
-    //public string Bread { get; set; }
+    public int Pastery { get; set; }
+    public int Bread { get; set; }
     private static List<Order> _instances = new List<Order> { };
 
-    public Order(string description)
+    public Order(string description, int pastery, int bread)
     {
       Description = description;
-      //Pastery = pastery;
-      //Bread = bread;
+      Pastery = pastery;
+      Bread = bread;
       _instances.Add(this);
       Id = _instances.Count;
     }

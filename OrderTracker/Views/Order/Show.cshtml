@@ -4,8 +4,11 @@
 
 <h1>Vendor Order Details: </h1>
 
-<h2>@Model["Order"].Description</h2>
-<h3>Vendor: @Model["Vendor"].Name</h3>
+<h2>Vendor: @Model["Vendor"].Name</h2>
+<h3>@Model["Order"].Description</h3>
+<h3>Pastery: @Model["Order"].Pastery</h3>
+<h3>Bread: @Model["Order"].Bread</h3>
+
 
 <a href='/vendor/@Model["Vendor"].Id/order/new'><button type="button" class="btn btn-success" style="width:150px">Add Order</button></a>
 <a href='/vendor'><button type="button" class="btn btn-success" style="width:150px">View Vendors</button></a>
