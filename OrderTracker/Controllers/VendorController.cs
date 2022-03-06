@@ -8,41 +8,38 @@ namespace OrderTracker.Controllers
   public class VendorController : Controller
   {
 
-    [HttpGet("/vendors")]
+    [HttpGet("/vendor")]
     public ActionResult Index()
     {
       List<Vendor> allVendors = Vendor.GetAll();
       return View(allVendors);
     }
 
-    [HttpGet("/vendors/new")]
+    [HttpGet("/vendor/new")]
     public ActionResult New()
     {
       return View();
     }
 
-    [HttpPost("/vendors")]
+    [HttpPost("/vendor")]
     public ActionResult Create(string VendorName)
     {
       Vendor newVendor = new Vendor(VendorName);
       return RedirectToAction("Index");
     }
 
-    [HttpGet("/vendors/{id}")]
+    [HttpGet("/vendor/{id}")]
     public ActionResult Show(int id)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor selectedVendor = Vendor.Find(id);
-      List<Order> VendorOrders = selectedVendor.Orders;
+      List<Order> vendorOrders = selectedVendor.Orders;
       model.Add("Vendor", selectedVendor);
-      model.Add("Orders", VendorOrders);
+      model.Add("Orders", vendorOrders);
       return View(model);
     }
 
-
-    // This one creates new Orders within a given Vendor, not new Vendors:
-
-    [HttpPost("/vendors/{VendorId}/Orders")]
+    [HttpPost("/vendor/{vendorId}/order")]
     public ActionResult Create(int vendorId, string orderDescription)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
@@ -54,6 +51,5 @@ namespace OrderTracker.Controllers
       model.Add("Vendor", foundVendor);
       return View("Show", model);
     }
-
   }
 }
